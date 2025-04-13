@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.UUID;
 
 @Entity
@@ -28,8 +29,14 @@ public class Autor {
     @Column(name = "nacionalidade", length = 50, nullable = false)
     private String nacionalidade;
 
+    @OneToMany(mappedBy = "autor" // Dentro da entidade livro como esta mapeado o autor
+    ) // Um autor para muitos livros, MappedBy diz que essa entidade não tem essa coluna
+    private List<Livro> livros;
+
     @Deprecated
-    public  Autor(){}
+    public  Autor(){
+        // Para uso do framework
+    }  // Necessário para buscas no banco de dados via JPA
 
     public Autor(String nome, LocalDate dataNascimento, String nacionalidade) {
         this.nome = nome;
