@@ -28,5 +28,12 @@ public class Autor {
     @Column(name = "nacionalidade", length = 50, nullable = false)
     private String nacionalidade;
 
+    @Deprecated
+    public  Autor(){}
 
+    public Autor(String nome, LocalDate dataNascimento, String nacionalidade) {
+        this.nome = nome;
+        this.dataNascimento = dataNascimento;
+        this.nacionalidade = nacionalidade;
+    }
 }
