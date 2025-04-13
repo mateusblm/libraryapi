@@ -34,7 +34,7 @@ public class Livro {
     private GeneroLivro genero;
 
     @Column(name = "preco", precision = 18, scale = 2) // Numero de 18 posições, aonde duas são decimais
-    private Double preco;
+    private BigDecimal preco;
 
     @ManyToOne // Muitos livros para um autor. Many referencia a entidade atual, e one à mapeada(O autor pode ter um ou mais livros)
     @JoinColumn(name = "id_autor") // Referencia a coluna ao id_autor da coluna Autor
