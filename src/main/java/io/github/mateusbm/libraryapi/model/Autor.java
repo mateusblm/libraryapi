@@ -4,6 +4,7 @@ package io.github.mateusbm.libraryapi.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -13,6 +14,7 @@ import java.util.UUID;
 @Table(name="autor", schema = "public")
 @Getter
 @Setter
+@ToString
 public class Autor {
 
     @Id
@@ -33,7 +35,6 @@ public class Autor {
     ) // Um autor para muitos livros, MappedBy diz que essa entidade não tem essa coluna
     private List<Livro> livros;
 
-    @Deprecated
     public  Autor(){
         // Para uso do framework
     }  // Necessário para buscas no banco de dados via JPA
@@ -43,4 +44,5 @@ public class Autor {
         this.dataNascimento = dataNascimento;
         this.nacionalidade = nacionalidade;
     }
+
 }
